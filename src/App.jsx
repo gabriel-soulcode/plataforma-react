@@ -8,8 +8,8 @@ import { Contato } from './pages/Contato/Contato';
 function App() {
   return (
     <div className="App">
-      <Menu />
       <BrowserRouter>
+        <Menu />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
