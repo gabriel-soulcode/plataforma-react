@@ -20,6 +20,9 @@ export function Menu() {
                         <Button variant="link">
                             <Link to="/usuarios">Usuários</Link>
                         </Button>
+                        <Button variant="link">
+                            <Link to="/login">Login</Link>
+                        </Button>
                     </Nav>
                 </Container>
             </Navbar>
