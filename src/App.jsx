@@ -9,6 +9,7 @@ import { NotFound } from './pages/NotFound/NotFound';
 import { Root } from './pages/Root/Root';
 import { Section } from './components/Section/Section';
 import { EditaUsuario } from './pages/EditaUsuario/EditaUsuario';
+import { Perfil } from './pages/Perfil/Perfil';
 
 const sections = [
   {
@@ -45,6 +46,7 @@ function App() {
             <Route path="/contato" element={<Contato />} />
             <Route path="/usuarios" element={<Usuarios />} />
             <Route path="/usuario/edit/:id" element={<EditaUsuario />} />   {/* :id -> Parametro de rota */}
+            <Route path="/usuario/perfil/:id" element={<Perfil />} />
             <Route path="/login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
           </Route>

@@ -14,6 +14,7 @@ export function Usuarios() {
                         <th>Idade</th>
                         <th>E-mail</th>
                         <th>Editar</th>
+                        <th>Perfil</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,9 @@ export function Usuarios() {
                                 <td>{usuario.email}</td>
                                 <td>
                                     <Link to={`/usuario/edit/${usuario.id}`}>Editar</Link>
+                                </td>
+                                <td>
+                                    <Link to={`/usuario/perfil/${usuario.id}`}>Perfil</Link>
                                 </td>
                             </tr>
                         )
