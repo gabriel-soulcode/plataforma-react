@@ -1,7 +1,28 @@
-import { Card, Button, Form } from "react-bootstrap";
+import { Card, Button, Form, Toast, ToastContainer } from "react-bootstrap";
 import "./Login.css";
+import { usuarios } from "../../data/usuarios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export function Login() {
+
+    const [show, setShow] = useState(false);
+    const navigate = useNavigate();
+
+    function signin() {
+        const email = document.getElementById("email").value;
+        const senha = document.getElementById("senha").value;
+        const usuario = usuarios.find(u => (u.email === email && u.senha === senha));
+        if (usuario) {
+            navigate("/");
+        }
+        else {
+            setShow(true);
+        }
+    }
+
+
     return (
         <div className="login">
             <Card style={{ width: "25rem" }}>
@@ -19,13 +40,22 @@ export function Login() {
                         <Form.Control type="email" id="email" placeholder="Entre com e-mail" />
                         <Form.Label className="mt-3" htmlFor="senha">Senha</Form.Label>
                         <Form.Control type="password" id="senha" placeholder="Entre com senha" />
-                        <Button className="w-100 mt-3">Enviar</Button>
+                        <Button className="w-100 mt-3" onClick={signin}>Enviar</Button>
                     </Form>
                 </Card.Body>
                 <Card.Footer className="text-muted">
                     <a href="#">Cadastre-se</a>
                 </Card.Footer>
             </Card>
+
+            <ToastContainer position="bottom-end" className="pb-3">
+                <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
+                    <Toast.Header>
+                        <strong>E-mail ou senha inválido!</strong>
+                    </Toast.Header>
+                    <Toast.Body>Verique o e-mail e senha digitado.</Toast.Body>
+                </Toast>
+            </ToastContainer>
         </div>
     )
 }
