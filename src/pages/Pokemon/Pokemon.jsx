@@ -12,7 +12,7 @@ export function Pokemon() {
     return (
         <div className="pokemon">
             <h1>Cadastro de Pokemon</h1>
-            <form onSubmit={handleSubmit(onSubmitPokemon)} noValidate>
+            <form onSubmit={handleSubmit(onSubmitPokemon)}>
                 <label htmlFor="nome">Nome</label><br />
                 <input type="text" id="nome" {...register("nome")} /><br />
                 
@@ -20,7 +20,7 @@ export function Pokemon() {
                 <input type="text" id="tipo" {...register("tipo")} /><br />
                 
                 <label htmlFor="altura">Altura</label><br />
-                <input type="number" id="altura" {...register("altura")} /><br />
+                <input type="number" id="altura" {...register("altura")} step="0.01" /><br />
                 
                 <label htmlFor="peso">Peso</label><br />
                 <input type="number" id="peso" {...register("peso")} /><br />
