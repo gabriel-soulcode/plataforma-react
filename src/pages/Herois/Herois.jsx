@@ -1,17 +1,14 @@
+import { useState } from "react";
+import { Alert } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 export function Herois() {
 
     const { register, handleSubmit } = useForm();
+    const [heroi, setHeroi] = useState();
 
     function onSubmitHeroi(heroi) {
-        let mensagem = `
-            Nome: ${heroi.nome}
-            Poder: ${heroi.poder}
-            Fraqueza: ${heroi.fraqueza}
-            História: ${heroi.historia}
-        `;
-        alert(mensagem);
+        setHeroi(heroi)
     }
 
     return (
@@ -32,6 +29,18 @@ export function Herois() {
 
                 <button type="submit">Cadastrar Heroi</button>
             </form>
+
+            <br />
+
+            {
+                heroi &&
+                <Alert variant="primary">
+                    Nome: {heroi.nome} <br />
+                    Poder: {heroi.poder} <br />
+                    Fraqueza: {heroi.fraqueza} <br />
+                    História: {heroi.historia} <br />
+                </Alert>
+            }
         </div>
     );
 }
